@@ -19,10 +19,12 @@ namespace addressbook_tests_autoit
                 Name = "test"
             };
 
-            List<GroupData> newGroups = app.Groups.Add(newGroup);
+             app.Groups.Add(newGroup);
+
+             List<GroupData> newGroups = app.Groups.GetGroupList();
             oldGroups.Add(newGroup);
             oldGroups.Sort();
-            newGroups.Sort();
+           newGroups.Sort();
 
             Assert.AreEqual(oldGroups, newGroups);
 
